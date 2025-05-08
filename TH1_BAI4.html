@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.tiny.cloud/1/byb14itm22rcibw6vd7jd1p29c5apay30mvq8kp4qle9vl6r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <meta charset="UTF-8">
+  <title>Employee Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    fieldset {
+      border: 1px solid #999; /* Thiết lập viền dày 1px, kiểu liền nét và màu xám (#999) */
+      padding: 15px; /* Thêm khoảng trắng bên trong viền */
+      margin-bottom: 20px; /* Thêm khoảng trắng bên dưới mỗi fieldset */
+    }
+
+    legend {
+      font-weight: bold; /* In đậm tiêu đề của fieldset */
+    }
+    fieldset {
+      border: 1px solid #999;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    legend {
+      font-weight: bold;
+    }
+    label {
+      display: inline-block;
+      width: 150px;
+      vertical-align: top;
+      margin-top: 6px;
+    }
+    input, select, textarea {
+      width: 250px;
+      margin-bottom: 10px;
+    }
+    input[type="radio"], input[type="checkbox"] {
+      width: auto;
+    }
+    .form-row {
+      margin-bottom: 8px;
+    }
+    .textarea {
+      width: 100%;
+      height: 100px;
+    }
+    .captcha {
+      font-family: 'Courier New', monospace;
+      font-size: 24px;
+      background: #eee;
+      display: inline-block;
+      padding: 5px 15px;
+      margin: 5px 0;
+    }
+    .buttons {
+      text-align: right;
+      margin-top: 20px;
+    }
+    .buttons button {
+      padding: 8px 16px;
+      margin-left: 5px;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <form>
+    <!-- Basic Info -->
+    <fieldset>
+      <legend>Basic Info</legend>
+
+      <div class="form-row">
+        <label>Employee ID</label>
+        <input type="text" value="9" readonly>
+      </div>
+
+      <div class="form-row">
+        <label>Last Name</label>
+        <input type="text" value="Dodsworth">
+      </div>
+
+      <div class="form-row">
+        <label>First Name</label>
+        <input type="text" value="Anne">
+      </div>
+
+      <div class="form-row">
+        <label>Gender</label>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> XXX
+        <input type="radio" name="gender" checked> ZZZ
+      </div>
+
+      <div class="form-row">
+        <label>Title</label>
+        <input type="text" value="Sales Representative">
+      </div>
+
+      <div class="form-row">
+        <label>Suffix</label>
+        <input type="text" value="Ms.">
+      </div>
+
+      <div class="form-row">
+        <label>BirthDate</label>
+        <input type="datetime-local" value="1969-07-02T00:00">
+      </div>
+
+      <div class="form-row">
+        <label>HireDate</label>
+        <input type="datetime-local" value="1994-11-15T00:00">
+      </div>
+
+      <div class="form-row">
+        <label>SSN #</label>
+        <input type="text">
+      </div>
+
+      <div class="form-row">
+        <label>Reports To</label>
+        <select>
+          <option>Buchanan</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <!-- Contact Info -->
+    <fieldset>
+      <legend>Contact Info</legend>
+
+      <div class="form-row">
+        <label>Email</label>
+        <input type="email" value="name@example.com">
+      </div>
+
+      <div class="form-row">
+        <label>Address</label>
+        <input type="text" value="7 Houndstooth Rd.">
+      </div>
+
+      <div class="form-row">
+        <label>City</label>
+        <input type="text" value="London">
+      </div>
+
+      <div class="form-row">
+        <label>Region</label>
+        <input type="text">
+      </div>
+
+      <div class="form-row">
+        <label>Postal Code</label>
+        <input type="text" value="WG2 7LT">
+      </div>
+
+      <div class="form-row">
+        <label>Country</label>
+        <select>
+          <option>Russian Federation</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>US Home Phone</label>
+        <input type="text" value="(234)234-2342">
+      </div>
+
+      <div class="form-row">
+        <label>Photo</label>
+        <input type="text" value="EmpID9.bmp">
+      </div>
+    </fieldset>
+
+    <!-- Optional Info -->
+    <fieldset>
+      <legend>Optional Info</legend>
+
+      <div class="form-row">
+        <label>Notes</label>
+        <textarea id="notes">Anne has a BA degree in English from St. Lawrence College.
+        She is fluent in French and German.ZZZ</textarea>
+      </div>
+      
+
+      <div class="form-row">
+        <label>Preferred Shift</label>
+          <input type="checkbox" checked> Regular
+        <div>
+          <div style="margin-left: 154px;"> <input type="checkbox" checked> Gravy Yard
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Active?</label>
+        <input type="checkbox" checked>
+      </div>
+  
+      <div class="form-row">
+        <label>Are you human?</label>
+        <div class="captcha">TIDAWO</div>
+        <button type="button">Click to change</button>
+        <input type="text">
+      </div>
+    </fieldset>
+
+
+  </form>
+  <script>
+    tinymce.init({
+      selector: 'textarea#notes',
+      menubar: false,
+      toolbar: 'bold italic underline | alignleft aligncenter alignright | bullist numlist | undo redo | cut copy paste | link image | fontsizeselect | removeformat',
+      height: 200
+    });
+  </script>
+<div class="buttons" style="text-align: right; margin-top: 20px; display: flex; align-items: center; justify-content: flex-end;">
+  <div style="margin-right: auto;">
+    <div style="display: flex; align-items: center;">
+      <button type="button" style="padding: 8px 16px; margin-right: 5px; background-color: #333; color: #ffffff; border: 1px solid #ccc; cursor: pointer; font-size: 1em; width: 20px;">&lt;</button>
+      <button type="button" style="padding: 8px 16px; margin-right: 5px; background-color: #333; color: #ffffff; border: 1px solid #ccc; cursor: pointer; font-size: 1em; width: 20px;">&gt;</button>
+    </div>
+    <span style="display: block;  margin-left: 0; font-size: 0.9em; color: black;">* required</span>
+  </div>
+  <button type="submit" style="padding: 8px 16px; margin-left: 5px; background-color: #333; color: white; border: none; cursor: pointer;">Submit</button>
+  <button type="reset" style="padding: 8px 16px; margin-left: 5px; background-color: #333; color: white; border: none; cursor: pointer;">Cancel</button>
+</div>
+  
+</body>
+</html>
